@@ -32,7 +32,7 @@ resource "aws_instance" "ec2" {
   key_name = var.key_name
   disable_api_termination = false
   vpc_security_group_ids = [aws_security_group.sg.id]
-  user_data = file("/root/terraform-deo/day-2/user-data.sh")
+  user_data = file("/root/terraform-demo/day-2/user-data.sh")
 
   root_block_device {
     volume_size = var.volume_size
