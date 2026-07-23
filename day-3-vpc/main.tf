@@ -40,7 +40,7 @@ resource "aws_internet_gateway" "IGW" {
 
 #NAT Elastic IP
 resource "aws_eip" "nat_eip" {
-  domain = aws_vpc.my-vpc.id
+  domain = "vpc"
   tags = {
     Name = "nat_eip"
   }
