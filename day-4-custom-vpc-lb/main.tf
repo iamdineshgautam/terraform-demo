@@ -44,7 +44,7 @@ resource "aws_subnet" "public_subnet_2" {
 # Route Table
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.custom_vpc.id
-  route = {
+  route  {
     gateway_id = aws_internet_gateway.igw.id
     cidr_block = "0.0.0.0/0"
   }
@@ -147,9 +147,9 @@ resource "aws_security_group" "alb-sg" {
 }
 
 # Target Group 
-resource "aws_alb_target_group" "tg" {
+resource "aws_lb_target_group" "tg" {
   name = "tg"
-  port = 80
+  port = var.http_port
   protocol = "HTTP"
   vpc_id = aws_vpc.custom_vpc.id
 }
