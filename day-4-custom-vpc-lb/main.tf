@@ -1,5 +1,5 @@
 # VPC
-resource "aws_vpc" "custome_vpc" {
+resource "aws_vpc" "custom_vpc" {
   cidr_block = var.vpc_cidr
 
   tags = {
@@ -43,9 +43,9 @@ resource "aws_subnet" "public_subnet_2" {
 
 # Route Table
 resource "aws_route_table" "public_rt" {
-  vpc_id = aws_vpc.custome_vpc.id
+  vpc_id = aws_vpc.custom_vpc.id
   route = {
-    igw = aws_internet_gateway.igw.id
+    gateway_id = aws_internet_gateway.igw.id
     cidr_block = "0.0.0.0/0"
   }
 
@@ -102,7 +102,7 @@ resource "aws_instance" "server-1" {
   subnet_id = aws_subnet.public_subnet_1.id
   associate_public_ip_address = true 
 
-  user_data = file("/root/terraform-b32/day-3-vpc/user-data.sh")
+  user_data = file("/root/terraform-demo/day-4-custom-vpc-lb/user-data.sh")
 
   tags = {
     Name = "server-1"
@@ -118,7 +118,7 @@ resource "aws_instance" "server-2" {
   subnet_id = aws_subnet.public_subnet_2.id
   associate_public_ip_address = true
 
-  user_data = file("/root/terraform-b32/day-3-vpc/user-data.sh")
+  user_data = file("/root/terraform-demo/day-4-custom-vpc-lb/user-data.sh")
 
   tags = {
     Name = "server-2"
