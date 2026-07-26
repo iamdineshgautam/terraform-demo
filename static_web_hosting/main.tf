@@ -12,7 +12,7 @@ resource "aws_s3_bucket_public_access_block" "website" {
 }
 
 resource "aws_s3_bucket_policy" "website" {
-  bucket = aws_s3_bucket.web_bucket.id
+  bucket = aws_s3_bucket.website.id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -34,7 +34,7 @@ resource "aws_s3_bucket_policy" "website" {
 }
 
 resource "aws_s3_bucket_website_configuration" "website" {
-  bucket = aws_s3_bucket.web_bucket.id
+  bucket = aws_s3_bucket.website.id
   index_document {
     suffix = "index.html"
   }
@@ -44,7 +44,7 @@ resource "aws_s3_bucket_website_configuration" "website" {
 }
 
 resource "aws_s3_object" "index" {
-  bucket = aws_s3_bucket.web_bucket.id
+  bucket = aws_s3_bucket.website.id
   key = "index.html"
   source = "index.html"
   content_type = "text/html"
@@ -52,7 +52,7 @@ resource "aws_s3_object" "index" {
 }
 
 resource "aws_s3_object" "style" {
-  bucket = aws_s3_bucket.web_bucket.id
+  bucket = aws_s3_bucket.website.id
   key = "style.css"
   source = "style.css"
   content_type = "text/css"
