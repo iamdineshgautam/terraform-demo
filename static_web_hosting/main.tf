@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "web_bucket" {
+resource "aws_s3_bucket" "website" {
   bucket = var.bucket_name
 }
 
@@ -36,10 +36,10 @@ resource "aws_s3_bucket_policy" "website" {
 resource "aws_s3_bucket_website_configuration" "website" {
   bucket = aws_s3_bucket.web_bucket.id
   index_document {
-    suffix = index.html
+    suffix = "index.html"
   }
   error_document {
-    key = index.html
+    key = "index.html"
   }
 }
 
