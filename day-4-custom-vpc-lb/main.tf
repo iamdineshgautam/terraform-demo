@@ -68,7 +68,7 @@ resource "aws_route_table_association" "public_rt_assoc_2" {
 # Security Group For EC2
 resource "aws_security_group" "ec2_sg" {
   name = "EC2-SG"
-  vpc_id = aws_vpc.custome_vpc.id
+  vpc_id = aws_vpc.custom_vpc.id
 
   ingress {
     from_port = var.ssh_port
@@ -129,7 +129,7 @@ resource "aws_instance" "server-2" {
 # Now Security Group for Load Balancer
 resource "aws_security_group" "alb-sg" {
   name = "alb-sg"
-  vpc_id = aws_vpc.custome_vpc.id
+  vpc_id = aws_vpc.custom_vpc.id
 
   ingress {
     from_port = 80
@@ -151,7 +151,7 @@ resource "aws_alb_target_group" "tg" {
   name = "tg"
   port = 80
   protocol = "HTTP"
-  vpc_id = aws_vpc.custome_vpc.id
+  vpc_id = aws_vpc.custom_vpc.id
 }
 
 # register EC2 instances
