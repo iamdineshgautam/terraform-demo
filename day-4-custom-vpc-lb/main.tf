@@ -9,7 +9,7 @@ resource "aws_vpc" "custom_vpc" {
 
 # IGW
 resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.custome_vpc.id
+  vpc_id = aws_vpc.custom_vpc.id
 
   tags = {
     Name = "igw"
@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "igw" {
 # Public Subnets (we will create 2 subnets coz Load Balancer requires minimum 2 Availability Zones.) 
 # Subnet-1
 resource "aws_subnet" "public_subnet_1" {
-  vpc_id = aws_vpc.custome_vpc.id
+  vpc_id = aws_vpc.custom_vpc.id
   cidr_block = var.public_subnet_1_cidr
   availability_zone = "ap-south-1a"
   map_public_ip_on_launch = true
@@ -31,7 +31,7 @@ resource "aws_subnet" "public_subnet_1" {
 
 # Subnet-2
 resource "aws_subnet" "public_subnet_2" {
-  vpc_id = aws_vpc.custome_vpc.id
+  vpc_id = aws_vpc.custom_vpc.id
   cidr_block = var.public_subnet_2_cidr
   availability_zone = "ap-south-1b"
   map_public_ip_on_launch = true
