@@ -5,3 +5,4 @@ variable "aws_region" {
 variable "bucket_count" {
   default = 10
 }
+
