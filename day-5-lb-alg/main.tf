@@ -50,8 +50,8 @@ resource "aws_lb" "lb" {
     load_balancer_type = var.load_balancer_type
     security_groups = [aws_security_group.sg.id]
     subnets = [
-        data.aws_subnet.default.id, 
-        data.aws_subnet.default.id
+        subnet-06c107ffba913397d, 
+        subnet-0935759f8f9f39e11
     ]
 }
 
