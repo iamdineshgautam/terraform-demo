@@ -52,7 +52,7 @@ resource "aws_route_table_association" "public_rt_assoc_1" {
 
 resource "aws_route_table_association" "public_rt_assoc_2" {
   route_table_id = aws_route_table.public_rt.id
-  subnet_id = aws.public_subnet_2.id
+  subnet_id = aws_subnet.public_subnet_2.id
 }
 
 resource "aws_security_group" "my_security_group" {
