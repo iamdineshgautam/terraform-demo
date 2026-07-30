@@ -15,11 +15,11 @@ variable "load_balancer_type" {
 }
 
 variable "ami" {
-    default = "ami-0aa939abad20cdeae" 
+    default = "ami-00d2dbb426772b03a" 
 }
 
 variable "key_name" {
-    default = "my-key-ohio"
+    default = "u-key"
 }
 
 variable "instance_type" {
