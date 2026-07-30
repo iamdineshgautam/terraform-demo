@@ -19,7 +19,7 @@ module "lb" {
 
 module "asg" {
   source = "./modules/asg"
-  image_id = ""
+  image_id = "ami-00d2dbb426772b03a"
   key_name = "u-key"
   instance_type = "t3.micro"
   sg_id = module.vpc.sg_id
