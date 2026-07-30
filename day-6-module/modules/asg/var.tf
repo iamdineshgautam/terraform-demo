@@ -1,0 +1,10 @@
+variable "image_id" {}
+variable "instance_type" {}
+variable "key_name" {}
+variable "sg_id" {}
+variable "desired_capacity" {}
+variable "max_size" {}
+variable "min_size" {}
+variable "target_arn" {}
+variable "public_subnet_1" {}
+variable "public_subnet_2" {}
