@@ -1,5 +1,5 @@
 resource "aws_instance" "ec2" {
-  ami = ""
+  ami = "ami-00d2dbb426772b03a"
   instance_type = "t3.micro"
   depends_on = [  ]
   tags = {
