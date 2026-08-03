@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "ec2" {
-  ami = ""
+  ami = "ami-00d2dbb426772b03a"
   instance_type = "t3.micro"
   tags = {
     Name = "ec2_instance"
@@ -14,3 +14,5 @@ resource "aws_instance" "ec2" {
     create_before_destroy = true
   }
 }
+
+
